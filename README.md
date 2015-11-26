@@ -12,7 +12,8 @@ install node (better with nvm)
 
 ##Start server
 
-npm start
+	cd boat-design
+	npm start
 
 ##Open app
 
