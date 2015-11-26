@@ -1,0 +1,22 @@
+{
+  "name": "boat-design",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Douglas M Gomes <douglasmg7@gmail.com>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}

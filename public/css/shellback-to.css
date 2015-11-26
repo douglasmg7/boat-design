@@ -1,0 +1,36 @@
+body {
+  background-color: #ffffff;
+  font-size: 100%;
+  font-family: sans-serif;
+}
+
+#content {padding: 50px;}
+
+table {
+  width: 800PX;
+  margin: 0px auto;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+table, thead, tr, th.head {border: 1px solid;}
+
+caption {
+  border-top: 1px solid;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  padding: .5em .5em;
+  font-size: 1.5em;
+}
+
+table, thead, tr, caption, th.head, th.sub-head {border-color: hsl(220, 70%, 85%);}
+tr:nth-child(odd), caption {background-color: hsl(220, 70%, 98%)}
+tr:nth-child(even), thead {background-color: hsl(220, 70%, 95%)}
+
+th, td {
+  font-size: 1em;
+  width: 6em;
+  height: 1.5em;
+}
+
+th {text-transform:capitalize;}
