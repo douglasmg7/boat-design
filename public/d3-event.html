@@ -22,9 +22,58 @@
     </svg>
     <script src="d3/d3.js" charset="utf-8"></script>
     <script>
-      console.log('iniciou');
-      d3.select('#sheer').attr('stroke', 'steelblue');
+      var sheer = d3.select('#sheer')
+        .on('click', function () {
+          alert('event fired');
+        })
+        .style('stroke', 'steelblue');
 
+      // First point - circle
+      d3.select('#heights').append('circle')
+        .attr('class', 'P1')
+        .attr('cx', sheer.node().pathSegList[0].x)
+        .attr('cy', sheer.node().pathSegList[0].y)
+        .attr('r', 3)
+        .style('fill', 'steelblue');
+
+      // First control point - circle
+      d3.select('#heights').append('circle')
+        .attr('class', 'P1Ctrl')
+        .attr('cx', sheer.node().pathSegList[1].x1)
+        .attr('cy', sheer.node().pathSegList[1].y1)
+        .attr('r', 3)
+        .style('fill', 'steelblue');
+
+      // Second point - circle
+      d3.select('#heights').append('circle')
+        .attr('class', 'P2')
+        .attr('cx', sheer.node().pathSegList[1].x)
+        .attr('cy', sheer.node().pathSegList[1].y)
+        .attr('r', 3)
+        .style('fill', 'steelblue');
+
+      // Second control point - circle
+      d3.select('#heights').append('circle')
+        .attr('class', 'P2Ctrl')
+        .attr('cx', sheer.node().pathSegList[1].x2)
+        .attr('cy', sheer.node().pathSegList[1].y2)
+        .attr('r', 3)
+        .style('fill', 'steelblue');
+
+
+      // First control point - line
+      d3.select('#heights').append('line')
+        .attr('class', 'ControlLine1')
+        .attr('x1', sheer.node().pathSegList[0].x)
+        .attr('y1', sheer.node().pathSegList[0].y)
+        .attr('x2', sheer.node().pathSegList[1].x1)
+        .attr('y2', sheer.node().pathSegList[1].y1)
+        .style('stroke', 'steelblue')
+        .style('stroke-width', '2px');
+
+      console.log(sheer.attr('d'));
+      // console.log(sheer.node());
+      console.log(sheer.node().pathSegList[1]);
 
     </script>
 
