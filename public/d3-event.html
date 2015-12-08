@@ -13,11 +13,11 @@
         }
     </style>
     <title>d3 chart 2</title>
-    <svg id='paper' width='600' heigth='400'>
+    <svg id='paper' width='900' heigth='600'>
       <g id="heights">
         <path id="sheer"
-           d="M37,29 C100,127 272,163 445,37"
-           style="fill:none; stroke:#000000; stroke-width:2px;" />
+           d="M37,29 C100,127 350,123 445,37"
+           style="fill:none; stroke:steelblue; stroke-width:1px;" />
       </g>
     </svg>
     <script src="d3/d3.js" charset="utf-8"></script>
@@ -25,51 +25,62 @@
       var sheer = d3.select('#sheer')
         .on('click', function () {
           alert('event fired');
-        })
-        .style('stroke', 'steelblue');
+        });
 
-      // First point - circle
-      d3.select('#heights').append('circle')
-        .attr('class', 'P1')
-        .attr('cx', sheer.node().pathSegList[0].x)
-        .attr('cy', sheer.node().pathSegList[0].y)
-        .attr('r', 3)
-        .style('fill', 'steelblue');
-
-      // First control point - circle
-      d3.select('#heights').append('circle')
-        .attr('class', 'P1Ctrl')
-        .attr('cx', sheer.node().pathSegList[1].x1)
-        .attr('cy', sheer.node().pathSegList[1].y1)
-        .attr('r', 3)
-        .style('fill', 'steelblue');
-
-      // Second point - circle
-      d3.select('#heights').append('circle')
-        .attr('class', 'P2')
-        .attr('cx', sheer.node().pathSegList[1].x)
-        .attr('cy', sheer.node().pathSegList[1].y)
-        .attr('r', 3)
-        .style('fill', 'steelblue');
-
-      // Second control point - circle
-      d3.select('#heights').append('circle')
-        .attr('class', 'P2Ctrl')
-        .attr('cx', sheer.node().pathSegList[1].x2)
-        .attr('cy', sheer.node().pathSegList[1].y2)
-        .attr('r', 3)
-        .style('fill', 'steelblue');
-
-
-      // First control point - line
+      // Line - first control point
       d3.select('#heights').append('line')
-        .attr('class', 'ControlLine1')
+        .attr('class', 'L1Ctrl')
         .attr('x1', sheer.node().pathSegList[0].x)
         .attr('y1', sheer.node().pathSegList[0].y)
         .attr('x2', sheer.node().pathSegList[1].x1)
         .attr('y2', sheer.node().pathSegList[1].y1)
-        .style('stroke', 'steelblue')
-        .style('stroke-width', '2px');
+        .style('stroke', 'skyblue')
+        .style('stroke-width', '1px');
+
+      // Circle - first point
+      var p1 = d3.select('#heights').append('circle')
+        .attr('class', 'P1')
+        .attr('cx', sheer.node().pathSegList[0].x)
+        .attr('cy', sheer.node().pathSegList[0].y)
+
+      // Circle - first control point
+      d3.select('#heights').append('circle')
+        .attr('class', 'P1Ctrl')
+        .attr('cx', sheer.node().pathSegList[1].x1)
+        .attr('cy', sheer.node().pathSegList[1].y1)
+
+      // Line - second control point
+      d3.select('#heights').append('line')
+        .attr('class', 'L2Ctrl')
+        .attr('x1', sheer.node().pathSegList[1].x)
+        .attr('y1', sheer.node().pathSegList[1].y)
+        .attr('x2', sheer.node().pathSegList[1].x2)
+        .attr('y2', sheer.node().pathSegList[1].y2)
+        .style('stroke', 'skyblue')
+        .style('stroke-width', '1px');
+
+      // Circle - second point
+      d3.select('#heights').append('circle')
+        .attr('class', 'P2')
+        .attr('cx', sheer.node().pathSegList[1].x)
+        .attr('cy', sheer.node().pathSegList[1].y)
+
+      // Circle - second control point
+      d3.select('#heights').append('circle')
+        .attr('class', 'P2Ctrl')
+        .attr('cx', sheer.node().pathSegList[1].x2)
+        .attr('cy', sheer.node().pathSegList[1].y2)
+
+      d3.selectAll('circle')
+        .attr('r', 4)
+        .style('stroke', 'skyblue')
+        .style('fill', 'none')
+        .on('mouseover', function () {
+          this.style.fill='skyblue';
+        })
+        .on('mouseout', function () {
+          this.style.fill='none';
+        });
 
       console.log(sheer.attr('d'));
       // console.log(sheer.node());
