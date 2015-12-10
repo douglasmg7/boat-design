@@ -1,0 +1,51 @@
+text{
+    font-size: 12px;
+    font-family: monospace;
+}
+button{
+  /*width: 100px;
+  height: 30px;*/
+}
+.variable{
+    font-weight: bold;
+}
+.background{
+    fill: none;
+    stroke: #444;
+    stroke-width: 1;
+    stroke-dasharray: 5, 5;
+}
+.control_line{
+    stroke: #28f;
+    stroke-width: 0.5;
+}
+.point1{
+    fill: #28A86B;
+}
+.point2{
+    fill: #6495ED;
+}
+.point3{
+    fill: #FF7878;
+}
+.point4{
+    fill: #8D5FD3;
+}
+#example_shape{
+    fill: none;
+    stroke: #111;
+    stroke-width: 0.8;
+}
+.control_point{
+    fill: #FFF;
+    opacity: 0;
+    stroke: #888;
+    stroke-width: 2;
+    cursor: pointer;
+}
+.control_point:hover{
+    opacity: .5;
+}
+.invisible{
+    pointer-events: none;
+}

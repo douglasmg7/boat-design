@@ -1,7 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+router.get('/ajax-response', function(req, res, next) {
+  res.send('hello world');
+});
+
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
